@@ -1,7 +1,6 @@
 A simple website which shows metadata and lyrics for different songs and can search for the same.\
 Api being used are\
-[Napster](https://developer.napster.com/developer)
-
+[Napster](https://developer.napster.com/developer) \
 [Lyrics.ovh](https://lyricsovh.docs.apiary.io/#reference)
 
 ## Available Scripts
