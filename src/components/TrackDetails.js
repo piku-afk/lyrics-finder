@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Container, Paper, makeStyles, Typography, Button } from '@material-ui/core';
+import { useParams, Link } from 'react-router-dom';
+import { Paper, makeStyles, Typography, Button } from '@material-ui/core';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import ReactAudioPlayer from 'react-audio-player';
 
@@ -11,10 +11,10 @@ const useStyles = makeStyles({
   },
   parentPaper: {
     marginTop: 66,
-    padding: '10px'
+    padding: '10px 5px'
   },
-  imgContainer: {
-    padding: '30px 0',
+  h5 : {
+    margin: '15px 0 20px'
   },
   h6: {
     marginTop: 15
@@ -36,11 +36,6 @@ const useStyles = makeStyles({
   }
 });
 
-const audioPlayer = {
-  display: 'block',
-  margin: '15px auto 0'
-}
-
 
 export default function TrackDetails() {
 
@@ -61,22 +56,16 @@ export default function TrackDetails() {
 
   const imgSrc = `https://api.napster.com/imageserver/v2/albums/${track.albumId}/images/300x300.jpg`;
 
-
-
-
-
-  console.log(track);
-
   return (
-      <Container classes={{
-        root: classes.container
-      }}>
         <Paper classes={{
           root: classes.parentPaper
         }} square>
-          <Paper classes={{
-            root: classes.imgContainer
-          }} elevation={2} square >
+          <Typography classes={{
+            h5: classes.h5
+          }} variant='h5' align='center' >
+            {track.albumName}
+          </Typography>
+          <Paper elevation={2} square >
             <img style={image} src={imgSrc} alt={track.name}/>
           </Paper>
         
@@ -88,7 +77,9 @@ export default function TrackDetails() {
           <Typography classes={{
             subtitle2: classes.subtitle2
           }} variant='subtitle2' align='center'>
-            {track.artistName}
+            <Link style={link} to={`/artist/${track.artistId}`} >
+              {track.artistName}
+            </Link>
             <FiberManualRecordIcon classes={{
               root: classes.icon
             }} fontSize='small' />
@@ -102,12 +93,26 @@ export default function TrackDetails() {
           <ReactAudioPlayer style={audioPlayer} src={track.previewURL} controls/>
 
         </Paper>
-      </Container>
   );
 }
 
 
 const image = {
   display: 'block',
-  margin: 'auto'
+  margin: 'auto',
+  width: '100%',
+  height: '300px',
+  objectFit: 'contain'
+}
+
+const audioPlayer = {
+  display: 'block',
+  margin: '15px auto 0',
+  width: '100%',
+  maxWidth: '300px'
+}
+
+const link = {
+  color: 'white',
+  textDecoration: 'none'
 }

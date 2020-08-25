@@ -3,6 +3,7 @@ import { GlobalContext } from '../App';
 import { BottomNavigation, BottomNavigationAction, makeStyles } from '@material-ui/core';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import SearchIcon from '@material-ui/icons/Search';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles({
@@ -23,7 +24,6 @@ const useStyles = makeStyles({
 export default function Footer() {
 
   const {tabValue, setTabValue} = useContext(GlobalContext);
-
   const classes = useStyles();
  
 
@@ -41,15 +41,16 @@ export default function Footer() {
        }}
 
       >
-        <BottomNavigationAction classes={{
-          selected: classes.selected,
-          iconOnly: classes.initail
-        }} label='Trending' icon={<TrendingUpIcon />} />
+          <BottomNavigationAction classes={{
+            selected: classes.selected,
+            iconOnly: classes.initail
+          }} component={Link} to='/' label='Trending' icon={<TrendingUpIcon />} />
+
 
         <BottomNavigationAction classes={{
           selected: classes.selected,
           iconOnly: classes.initail
-        }} label='Search' icon={<SearchIcon />} />
+        }} component={Link} to='/search/' label='Search' icon={<SearchIcon />} />
       </BottomNavigation>
 
 

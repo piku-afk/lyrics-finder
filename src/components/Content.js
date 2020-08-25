@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from '../App';
-import { Paper, makeStyles } from '@material-ui/core';
+import { makeStyles, Container } from '@material-ui/core';
 import Trending from './Trending';
 import Search from './Search';
 import { Route, Switch } from 'react-router-dom';
 import TrackDetails from './TrackDetails';
 import Lyrics from './Lyrics';
+import ArtistDetails from './ArtistDetails';
 
 
 const useStyles = makeStyles({
@@ -24,34 +25,34 @@ export default function Content() {
   const classes = useStyles();
 
   return (
-      <Paper classes={{
-        elevation0: classes.container
-      }} elevation={0} square >
+      <Container classes={{
+        root: classes.container
+      }} >
 
         <Switch>
 
-          <Route path='/' exact>
-            {getContent(tabValue)}
+          <Route path='/' exact >
+            <Trending />
           </Route>
 
-          <Route path='/track/:id' exact>
+          <Route path='/search/' exact >
+            <Search />
+          </Route>
+
+          <Route path='/track/:id' exact >
             <TrackDetails />
           </Route>
 
-          <Route path='/lyrics/:artist/:track'>
+          <Route path='/artist/:id' exact >
+            <ArtistDetails />
+          </Route>
+
+          <Route path='/lyrics/:artist/:track' exact >
             <Lyrics />
           </Route>
 
         </Switch>
 
-      </Paper>
+      </Container>
   );
-}
-
-function getContent(value) {
-  switch(value) {
-    default:
-    case 0: return <Trending />;
-    case 1: return <Search />;
-  }
 }

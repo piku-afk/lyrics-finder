@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Paper, Typography, makeStyles } from '@material-ui/core';
+import { Paper, Typography, makeStyles } from '@material-ui/core';
 import { useParams } from 'react-router-dom';
 
 const useStyles = makeStyles({
@@ -19,7 +19,7 @@ export default function Lyrics() {
 
   const classes = useStyles();
   const {artist, track} = useParams();
-  const [lyrics, setLyrics] = useState();
+  const [lyrics, setLyrics] = useState('No lyrics found for this song');
 
   useEffect(() => {
     fetch(`https://api.lyrics.ovh/v1/${artist}/${track}`)
@@ -28,7 +28,6 @@ export default function Lyrics() {
   }, [artist, track]);
 
   return (
-    <Container>
       <Paper classes={{
         root: classes.paper
       }} square >
@@ -38,7 +37,7 @@ export default function Lyrics() {
         <Typography align='center' variant='h6'>
             {track}
           </Typography>
-          <Typography align='center'>
+          <Typography variant='body1' align='center'>
             {artist}
           </Typography>
         </Paper>
@@ -48,6 +47,5 @@ export default function Lyrics() {
           {lyrics}
         </Typography>
       </Paper>
-    </Container>
   );
 }
