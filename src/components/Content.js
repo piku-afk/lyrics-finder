@@ -3,12 +3,15 @@ import { GlobalContext } from '../App';
 import { Paper, makeStyles } from '@material-ui/core';
 import Trending from './Trending';
 import Search from './Search';
+import { Route, Switch } from 'react-router-dom';
+import TrackDetails from './TrackDetails';
 
 
 const useStyles = makeStyles({
   container: {
+    backgroundColor: '#525252',
     maxWidth: 750,
-    margin: 'auto',
+    margin: '66px auto 0',
     minHeight: '50vh',
     marginBottom: 56,
   }
@@ -23,7 +26,19 @@ export default function Content() {
       <Paper classes={{
         elevation0: classes.container
       }} elevation={0} square >
-        {getContent(tabValue)}
+
+        <Switch>
+
+          <Route path='/' exact>
+            {getContent(tabValue)}
+          </Route>
+
+          <Route path='/track/:id' exact>
+            <TrackDetails />
+          </Route>
+
+        </Switch>
+
       </Paper>
   );
 }

@@ -7,12 +7,13 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles({
   root: {
+    backgroundColor: '#323232',
     width: '100%',
     position: 'fixed',
     bottom: 0
   },
   selected: {
-    color: 'inherit !important'
+    color: '#ca3e47 !important'
   },
   initail: {
     color: 'slategray'

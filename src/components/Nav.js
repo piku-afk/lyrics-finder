@@ -1,11 +1,15 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, makeStyles, Paper } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, makeStyles } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles({
+  root: {
+    backgroundColor: '#ca3e47',
+    color: 'white'
+  },
   toolbar: {
-    padding: '10px 16px'
+    padding: '1 16px'
   },
   h1: {
     fontSize: 30
@@ -24,8 +28,9 @@ function Nav() {
  
   return (
 
-        <AppBar position='static'>
-          <Paper square elevation={2}>
+        <AppBar position='fixed' classes={{
+          root: classes.root
+        }} >
             <Toolbar classes={{
               root: classes.toolbar
             }}>
@@ -37,7 +42,6 @@ function Nav() {
                 </Link>
               </Typography>
             </Toolbar>
-          </Paper>
         </AppBar>
 
   );

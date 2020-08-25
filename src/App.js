@@ -9,6 +9,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 const useStyles = makeStyles({
   parentContainer: {
+    backgroundColor: '#525252',
     height: '100%',
     overflowX: 'auto'
   }
@@ -32,10 +33,10 @@ function App() {
       <Router>
         <Paper classes={{
           elevation0: classes.parentContainer
-        }} elevation={0}>
+        }} elevation={0} square>
             <Nav />
             <Content />
-            <Footer />
+            <Footer/>
         </Paper>
       </Router>
     </GlobalContext.Provider>

@@ -5,14 +5,19 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   parentPaper: {
+    backgroundColor: '#414141',
     marginTop: 10
   },
   tableHead: {
-    border: 'none',
-    padding: '20px 16px'
+    padding: '20px 16px',
+    borderTop: '1px solid #ca3e47'
+  },
+  tableCell: {
+    borderBottom: '1px solid #525252'
   },
   h2: {
-    fontSize: 22
+    fontSize: 22,
+    color: '#ca3e47'
   }
 });
 
@@ -23,7 +28,7 @@ const link = {
 
 
 
-function getTableRow(track, index, song) {
+function getTableRow(classes, track, index, song) {
 
   const imgSrc = song ? 
   `https://api.napster.com/imageserver/v2/albums/${track.albumId}/images/170x170.jpg` : 
@@ -31,7 +36,9 @@ function getTableRow(track, index, song) {
 
   return (
     <TableRow key={track.id} >
-      <TableCell>
+      <TableCell classes={{
+        root: classes.tableCell
+      }} >
         <Link style={link} to={song ? `track/${track.id}` : `artist/${track.id}`} >
           <Grid container spacing={2} alignItems='center' >
             <Grid item xs={1}>
@@ -77,7 +84,7 @@ export default function GetTable({title, data, song}) {
           </TableHead>
     
           <TableBody>
-            {data.map((item, index) => getTableRow(item, index, song))}
+            {data.map((item, index) => getTableRow(classes, item, index, song))}
           </TableBody>
         </Table>
       </Paper>
