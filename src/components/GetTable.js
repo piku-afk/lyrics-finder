@@ -39,7 +39,7 @@ function getTableRow(classes, track, index, song) {
       <TableCell classes={{
         root: classes.tableCell
       }} >
-        <Link style={link} to={song ? `track/${track.id}` : `artist/${track.id}`} >
+        <Link style={link} to={song ? `/track/${track.id}` : `artist/${track.id}`} >
           <Grid container spacing={2} alignItems='center' >
             <Grid item xs={1}>
               {index + 1}

@@ -5,6 +5,7 @@ import Trending from './Trending';
 import Search from './Search';
 import { Route, Switch } from 'react-router-dom';
 import TrackDetails from './TrackDetails';
+import Lyrics from './Lyrics';
 
 
 const useStyles = makeStyles({
@@ -35,6 +36,10 @@ export default function Content() {
 
           <Route path='/track/:id' exact>
             <TrackDetails />
+          </Route>
+
+          <Route path='/lyrics/:artist/:track'>
+            <Lyrics />
           </Route>
 
         </Switch>
