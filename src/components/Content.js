@@ -1,19 +1,30 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from '../App';
-import { Paper } from '@material-ui/core';
+import { Paper, makeStyles } from '@material-ui/core';
 import Trending from './Trending';
 import Search from './Search';
+
+
+const useStyles = makeStyles({
+  container: {
+    maxWidth: 750,
+    margin: 'auto',
+    minHeight: '50vh',
+    marginBottom: 56,
+  }
+});
 
 export default function Content() {
 
   const {tabValue} = useContext(GlobalContext);
-
-  console.log(tabValue);
+  const classes = useStyles();
 
   return (
-    <Paper>
-      {getContent(tabValue)}
-    </Paper>
+      <Paper classes={{
+        elevation0: classes.container
+      }} elevation={0} square >
+        {getContent(tabValue)}
+      </Paper>
   );
 }
 

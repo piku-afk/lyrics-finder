@@ -8,11 +8,11 @@ import SearchIcon from '@material-ui/icons/Search';
 const useStyles = makeStyles({
   root: {
     width: '100%',
-    position: 'absolute',
+    position: 'fixed',
     bottom: 0
   },
   selected: {
-    color: 'white !important'
+    color: 'inherit !important'
   },
   initail: {
     color: 'slategray'

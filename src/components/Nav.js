@@ -1,12 +1,21 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, makeStyles, Paper } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles({
+  toolbar: {
+    padding: '10px 16px'
+  },
   h1: {
-    fontSize: 28
+    fontSize: 30
   }
 });
+
+const link = {
+  color: 'inherit',
+  textDecoration: 'none'
+}
 
 
 function Nav() {
@@ -16,12 +25,16 @@ function Nav() {
   return (
 
         <AppBar position='static'>
-          <Paper elevation={0}>
-            <Toolbar>
+          <Paper square elevation={2}>
+            <Toolbar classes={{
+              root: classes.toolbar
+            }}>
               <Typography variant='h1' classes={{
                 h1: classes.h1
               }} > 
-                Lyrics Finder
+                <Link style={link} to='/' >
+                  Lyrics Finder
+                </Link>
               </Typography>
             </Toolbar>
           </Paper>
