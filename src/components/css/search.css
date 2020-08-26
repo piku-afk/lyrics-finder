@@ -1,0 +1,10 @@
+.MuiFormLabel-root {
+  font-size: 18px !important;
+}
+.MuiFormLabel-root.Mui-focused {
+  color: #ca3e47 !important;
+}
+
+.MuiInput-underline:after {
+  border-bottom-color: #ca3e47 !important;
+}

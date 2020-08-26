@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { GlobalContext } from '../App';
+import React from 'react';
 import { makeStyles, Container } from '@material-ui/core';
 import Trending from './Trending';
 import Search from './Search';
@@ -21,7 +20,6 @@ const useStyles = makeStyles({
 
 export default function Content() {
 
-  const {tabValue} = useContext(GlobalContext);
   const classes = useStyles();
 
   return (

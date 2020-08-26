@@ -19,7 +19,7 @@ export default function Lyrics() {
 
   const classes = useStyles();
   const {artist, track} = useParams();
-  const [lyrics, setLyrics] = useState('No lyrics found for this song');
+  const [lyrics, setLyrics] = useState('');
 
   useEffect(() => {
     fetch(`https://api.lyrics.ovh/v1/${artist}/${track}`)
@@ -44,7 +44,7 @@ export default function Lyrics() {
         <Typography classes={{
           body1: classes.text
         }} variant='body1'>
-          {lyrics}
+          {lyrics.length === 0 ? 'No lyrics found for this song' : lyrics}
         </Typography>
       </Paper>
   );

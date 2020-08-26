@@ -16,8 +16,8 @@ const useStyles = makeStyles({
   selected: {
     color: '#ca3e47 !important'
   },
-  initail: {
-    color: 'slategray'
+  initial: {
+    color: '#525252'
   }
 });
 
@@ -43,13 +43,13 @@ export default function Footer() {
       >
           <BottomNavigationAction classes={{
             selected: classes.selected,
-            iconOnly: classes.initail
+            iconOnly: classes.initial
           }} component={Link} to='/' label='Trending' icon={<TrendingUpIcon />} />
 
 
         <BottomNavigationAction classes={{
           selected: classes.selected,
-          iconOnly: classes.initail
+          iconOnly: classes.initial
         }} component={Link} to='/search/' label='Search' icon={<SearchIcon />} />
       </BottomNavigation>
 
